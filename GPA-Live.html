@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Transcript | GPA Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for the table containers */
+        .table-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .table-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .table-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        /* Limit height to approximately 4 rows (4 x 65px header + rows) */
+        .table-container {
+            max-height: 320px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 font-sans text-slate-900">
+
+    <div class="max-w-5xl mx-auto px-4 py-12">
+        <header
+            class="mb-10 text-center md:text-left flex flex-col md:flex-row justify-between items-start border-b pb-8">
+            <div class="space-y-2">
+                <h1 class="text-4xl font-extrabold text-slate-800 tracking-tight">Academic Transcript</h1>
+                <div class="flex flex-col gap-1">
+                    <p class="text-xl font-semibold text-gray-600">N.I.U. Weerasinghe</p>
+                    <p class="text-slate-600">2nd Year BSc (Hons) in Software Engineering – NIBM</p>
+                    <a href="https://www.nibmworldwide.com/exams/mis" target="_blank"
+                        class="text-xs text-slate-400 hover:text-blue-500 transition-colors flex items-center gap-1">
+                        <i class="fas fa-external-link-alt"></i> Verify via NIBM MIS Portal
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 md:mt-0 text-right">
+                <div class="inline-block bg-gray-600 text-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="px-6 py-3 text-center border-b border-gray-500/50">
+                        <span class="block text-xs uppercase tracking-widest opacity-80">Cumulative GPA</span>
+                        <span class="text-3xl font-bold">3.86</span>
+                    </div>
+                    <div class="flex divide-x divide-gray-500/50 bg-gray-700/30">
+                        <div class="px-4 py-2 text-center">
+                            <span class="block text-[10px] uppercase tracking-wider opacity-70">1st Year</span>
+                            <span class="text-lg font-semibold">3.86</span>
+                        </div>
+                        <div class="px-4 py-2 text-center">
+                            <span class="block text-[10px] uppercase tracking-wider opacity-70">2nd Year</span>
+                            <span class="text-lg font-semibold">3.86</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 gap-12">
+
+            <section>
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">First Year</h2>
+                        <p class="text-sm text-slate-500 font-medium text-emerald-600">Year GPA: 3.86</p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                    <div class="table-container table-scroll">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-slate-50 border-b border-slate-200 sticky top-0 z-10">
+                                <tr>
+                                    <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                                        Module Code</th>
+                                    <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                                        Module Title</th>
+                                    <th
+                                        class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
+                                        Points</th>
+                                    <th
+                                        class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
+                                        Final Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Introduction to Computer Science</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Effective Communication Skills-1</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Mathematics for Computing</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Programming Fundamentals</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Electronics and Computer Architecture</td>
+                                    <td class="px-6 py-4 text-center">3.7</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A-</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Object Oriented Programming</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Database Management Systems</td>
+                                    <td class="px-6 py-4 text-center">3.7</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A-</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Computer Networks</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">GUI Application Development</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Enterprise Application Development-1</td>
+                                    <td class="px-6 py-4 text-center">3</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">B</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Operating Systems</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Developing Modern Web</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Business Solution Development Project</td>
+                                    <td class="px-6 py-4 text-center">3.3</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">B+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-blue-600">DSE23.3F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Software Engineering</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center mb-6">
+                    <div class="bg-indigo-100 text-indigo-600 p-3 rounded-lg mr-4">
+                        <i class="fas fa-book-open text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Second Year (HND)</h2>
+                        <p class="text-sm text-slate-500 font-medium text-emerald-600">Year GPA: 3.86</p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                    <div class="table-container table-scroll">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-slate-50 border-b border-slate-200 sticky top-0 z-10">
+                                <tr>
+                                    <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                                        Module Code</th>
+                                    <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                                        Module Title</th>
+                                    <th
+                                        class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
+                                        Points</th>
+                                    <th
+                                        class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
+                                        Final Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">IT Management Practice</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Enterprise Application Development -2</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A+</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Robotics</td>
+                                    <td class="px-6 py-4 text-center">3</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">B</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Statistics for Computing</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Effective Communication Skills-1</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Mobile Application Development</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
+                                    <td class="px-6 py-4 font-medium">Data Management-2</td>
+                                    <td class="px-6 py-4 text-center">4</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm border-t pt-8">
+            <p>&copy; 2026 Academic Record Management System</p>
+            <p class="mt-1 italic">Generated for official review purposes.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
