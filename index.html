@@ -50,16 +50,16 @@
                 <div class="inline-block bg-gray-600 text-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="px-6 py-3 text-center border-b border-gray-500/50">
                         <span class="block text-xs uppercase tracking-widest opacity-80">Cumulative GPA</span>
-                        <span class="text-3xl font-bold">3.86</span>
+                        <span class="text-3xl font-bold" id="cumulative-gpa">0.00</span>
                     </div>
                     <div class="flex divide-x divide-gray-500/50 bg-gray-700/30">
                         <div class="px-4 py-2 text-center">
                             <span class="block text-[10px] uppercase tracking-wider opacity-70">1st Year</span>
-                            <span class="text-lg font-semibold">3.86</span>
+                            <span class="text-lg font-semibold" id="header-gpa-1">0.00</span>
                         </div>
                         <div class="px-4 py-2 text-center">
                             <span class="block text-[10px] uppercase tracking-wider opacity-70">2nd Year</span>
-                            <span class="text-lg font-semibold">3.86</span>
+                            <span class="text-lg font-semibold" id="header-gpa-2">0.00</span>
                         </div>
                     </div>
                 </div>
@@ -75,13 +75,13 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold text-slate-800">First Year</h2>
-                        <p class="text-sm text-slate-500 font-medium text-emerald-600">Year GPA: 3.86</p>
+                        <p class="text-sm text-slate-500 font-medium text-emerald-600">Year GPA: <span id="section-gpa-1">0.00</span></p>
                     </div>
                 </div>
 
                 <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
                     <div class="table-container table-scroll">
-                        <table class="w-full text-left border-collapse">
+                        <table class="w-full text-left border-collapse" id="table-year-1">
                             <thead class="bg-slate-50 border-b border-slate-200 sticky top-0 z-10">
                                 <tr>
                                     <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -222,13 +222,13 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold text-slate-800">Second Year (HND)</h2>
-                        <p class="text-sm text-slate-500 font-medium text-emerald-600">Year GPA: 3.86</p>
+                        <p class="text-sm text-slate-500 font-medium text-emerald-600">Year GPA: <span id="section-gpa-2">0.00</span></p>
                     </div>
                 </div>
 
                 <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
                     <div class="table-container table-scroll">
-                        <table class="w-full text-left border-collapse">
+                        <table class="w-full text-left border-collapse" id="table-year-2">
                             <thead class="bg-slate-50 border-b border-slate-200 sticky top-0 z-10">
                                 <tr>
                                     <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -278,7 +278,7 @@
                                 </tr>
                                 <tr class="hover:bg-slate-50 transition-colors">
                                     <td class="px-6 py-4 font-mono text-sm text-indigo-600">HNDSE25.1F/CO</td>
-                                    <td class="px-6 py-4 font-medium">Effective Communication Skills-1</td>
+                                    <td class="px-6 py-4 font-medium">Effective Communication Skills-2</td>
                                     <td class="px-6 py-4 text-center">4</td>
                                     <td class="px-6 py-4 text-center"><span
                                             class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold inline-block w-12 text-center">A</span>
@@ -313,6 +313,104 @@
             <p class="mt-1 italic">Generated for official review purposes.</p>
         </footer>
     </div>
+
+    <script>
+        // Credit Mapping based on the provided images
+        // Logic: Module Title -> Credit Value
+        const moduleCredits = {
+            // --- Semester 1 & 2 (Year 1) ---
+            "Introduction to Computer Science": 3,
+            "Mathematics for Computing": 3,
+            "Programming Fundamentals": 3,
+            "Electronics and Computer Architecture": 4,
+            "Object Oriented Programming": 2,
+            "Database Management Systems": 4,
+            "Computer Networks": 3,
+            "GUI Application Development": 4,
+            "Software Engineering": 4,
+            "Enterprise Application Development-1": 4,
+            "Operating Systems": 4,
+            "Developing Modern Web": 4,
+            "Business Solution Development Project": 3,
+            "Effective Communication Skills-1": 0, // Zero-credit based module
+
+            // --- Semester 1 & 2 (Year 2) ---
+            "Robotics": 3,
+            "Programming Data Structures and Algorithms-1": 3,
+            "Enterprise Application Development -2": 3, // Matches HTML spacing
+            "Enterprise Application Development-2": 3,  // Fallback for image spacing
+            "Data Management-2": 3,
+            "Statistics for Computing": 4,
+            "Data Warehousing and Business Intelligence": 3,
+            "Mobile Application Development": 3,
+            "Internet of Things": 3,
+            "Machine Learning": 4,
+            "IT Management Practice": 2,
+            "Emerging Technologies": 2,
+            "Effective Communication Skills-2": 2,
+            "Innovation and Entrepreneurship Projects": 5,
+            "Industrial Training": 5,
+            "CREST": 0
+        };
+
+        function calculateGPA() {
+            const table1 = document.getElementById('table-year-1');
+            const table2 = document.getElementById('table-year-2');
+            
+            let y1Stats = calculateTableGPA(table1);
+            let y2Stats = calculateTableGPA(table2);
+
+            // Update DOM Elements
+            document.getElementById('section-gpa-1').innerText = y1Stats.gpa;
+            document.getElementById('header-gpa-1').innerText = y1Stats.gpa;
+            
+            document.getElementById('section-gpa-2').innerText = y2Stats.gpa;
+            document.getElementById('header-gpa-2').innerText = y2Stats.gpa;
+
+            // Calculate Cumulative
+            let totalPoints = y1Stats.totalPoints + y2Stats.totalPoints;
+            let totalCredits = y1Stats.totalCredits + y2Stats.totalCredits;
+            let cumulativeGPA = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "0.00";
+            
+            document.getElementById('cumulative-gpa').innerText = cumulativeGPA;
+        }
+
+        function calculateTableGPA(table) {
+            let totalPoints = 0;
+            let totalCredits = 0;
+            
+            if (!table) return { gpa: "0.00", totalPoints: 0, totalCredits: 0 };
+
+            const rows = table.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length > 0) {
+                    const title = cells[1].innerText.trim();
+                    const points = parseFloat(cells[2].innerText);
+                    
+                    // Retrieve credit value from map, default to 0 if not found
+                    let creditValue = moduleCredits[title] !== undefined ? moduleCredits[title] : 0;
+                    
+                    // User Constraint: Max credit for a module is 4.
+                    // If image says 5, we use 4 for calculation purposes.
+                    if (creditValue > 4) {
+                        creditValue = 4;
+                    }
+
+                    if (!isNaN(points) && creditValue > 0) {
+                        totalPoints += (points * creditValue);
+                        totalCredits += creditValue;
+                    }
+                }
+            });
+
+            const gpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "0.00";
+            return { gpa, totalPoints, totalCredits };
+        }
+
+        // Run calculation on load
+        window.addEventListener('DOMContentLoaded', calculateGPA);
+    </script>
 
 </body>
 
